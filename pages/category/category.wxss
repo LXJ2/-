@@ -1,0 +1,26 @@
+/* pages/category/category.wxss */
+.van-sidebar-item--selected {
+    background: linear-gradient(to right, rgb(230, 170, 92), rgb(208, 139, 48));
+    border-radius: 12px;
+}
+.van-sidebar {
+    position: absolute;
+    height: 510px;
+}
+.menu {
+    position: relative;
+}
+.productNav {
+    width: calc(100% - 85px);
+    margin-left: 85px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.productNav image {   
+        width: 100%;
+        border-radius: 8px;
+    }
+.productNav .des {
+        font-size: 12px;
+        color: #777;
+    }

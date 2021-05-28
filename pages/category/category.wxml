@@ -1,0 +1,25 @@
+<!--pages/category/category.wxml-->
+<view class="menu">
+	<van-sidebar class="van-sidebar" active-key="{{activeKey}}" bind:change="onChange">
+		<van-sidebar-item wx:for="{{menuList}}" title="{{item.name}}" wx:key="i" />
+	</van-sidebar>
+		<view class="productNav">
+			<image src="{{menuDetail.banner}}" alt="" mode="widthFix" ></image>
+			<view wx:for="{{menuDetail.children}}" wx:key="index">
+				<view>{{ item.name }}</view>
+				<van-grid column-num="3">
+					<van-grid-item use-slot wx:for="{{item.children}}" wx:key="index">
+						<image style="width: 100%" src="{{item.smallImgCard.img}}" alt="" mode="widthFix" />
+						<match-media max-width="330">
+							<text class="des">{{ item.smallImgCard.name }}</text>
+						</match-media>
+						<match-media min-width="330">
+							<text class="des">{{ item.smallImgCard.name }}</text>
+						</match-media>
+					</van-grid-item>
+				</van-grid>
+			</view>
+		</view>
+	
+
+</view>

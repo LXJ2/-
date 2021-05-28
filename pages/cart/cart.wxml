@@ -1,0 +1,90 @@
+<!--pages/cart/cart.wxml-->
+<wxs src="../../app.wxs" module="appWxs"></wxs>
+<wxs src="./cart.wxs" module="cartWxs"></wxs>
+<view class="page-wrap">
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />
+  <view class="page-top">
+    <image class="bgImg" src="./img/bg_page_header.png" mode="widthFix" />
+    <!-- page-header -->
+    <view class="page-header">
+      <view bindtap = "toBack" class="icon__wrap" hover-class="none" hover-stop-propagation="false">
+        <van-icon class="header__icon" name="arrow-left" />
+      </view>
+      <!-- <view class="header__title">购物车</view> -->
+      <view hidden="{{list.length === 0}}" class="header__editor" bindtap="opration">
+        {{isEditor? "完成" : "编辑"}}
+      </view>
+    </view>
+    <!-- page-body -->
+    <view class="page-body">
+      <!-- 购物记录 -->
+      <view wx:if="{{list.length>0}}" class="cart-wrap">
+        <view class="cart__title">
+          <view class="left">
+            <!-- 权宜之计 藏一个全选反选标识 -->
+            <van-icon bindtap="chengeAllChecked" class="icon" name="{{ cartWxs.isAllChecked(list)? 'checked' : 'circle'}}" data-all-checked="{{cartWxs.isAllChecked(list)}}" size="20px" color="#CD3333" />
+            小米自营
+          </view>
+          <view class="right">
+            <van-icon class="icon" name="info-o" size="14px" />
+            已经免运费
+          </view>
+        </view>
+        <!-- 商品列表 -->
+        <view class="cart-list">
+          <view class="cart__item" wx:for="{{list}}" wx:key="id">
+            <view class="icon">
+              <van-icon bindtap="changeChecked" data-id="{{item.id}}" class="icon" name="{{item.checked ? 'checked' : 'circle'}}" size="20px" color="#CD3333" />
+            </view>
+            <view class="image">
+              <image class="" src="{{item.img}}" mode="widthFix" />
+            </view>
+            <view class="dcre-wrap">
+              <view class="top">{{item.brief}}</view>
+              <view class="bottom">
+                <view class="left">
+                  ￥
+                  <view class="left___price">{{item.price}}.00</view>
+                </view>
+                <view class="right">
+                  <mi-count count="{{item.count}}" data-id="{{item.id}}" binddecrease="decreaseHandeler" bindincrease="increaseHandeler"></mi-count>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 无记录 -->
+      <view wx:else class="empty-cart">
+        <image class="" src="./img/no_result_cart.png" mode="widthFix"></image>
+        <view class="empty__text" hover-class="none" hover-stop-propagation="false">
+          购物车暂时还没有商品哦
+        </view>
+        <view bindtap="toHome" class="empty__buy">去逛逛</view>
+      </view>
+    </view>
+  </view>
+  <!-- page-bottom -->
+  <view class="page-bottom" hidden="{{list.length === 0}}">
+    <view class="settle-wrap">
+      <view class="settle-wrap__left">
+        <van-icon bindtap="chengeAllChecked" data-all-checked="{{cartWxs.isAllChecked(list)}}" class="icon" name="{{ cartWxs.isAllChecked(list)? 'checked' : 'circle'}}" size="20px" color="#CD3333" />
+        <view class="text-all">全选</view>
+      </view>
+      <view hidden="{{isEditor}}" class="settle-wrap__middle">
+        <view class="top">
+          <view class="top__titel">合计</view>
+          <view class="price">￥{{cartWxs.allMoney(list)}}.00</view>
+        </view>
+        <view class="bottom" wx:if="{{list.length === 0}}">活动优惠￥1200.00</view>
+      </view>
+      <!-- 结算 -->
+      <view wx:if="{{!isEditor}}" bindtap="settleBtn" class="settle-btn" class="settle-wrap__right">
+        结算({{cartWxs.allCount(list)}})
+      </view>
+      <!-- 删除 -->
+      <view bindtap="removeCartList" wx:else class="remove-btn" class="settle-wrap__right">删除</view>
+    </view>
+  </view>
+</view>

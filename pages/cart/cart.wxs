@@ -1,0 +1,22 @@
+module.exports.isAllChecked = function (list) {
+  var isAll = list.every(function(item){
+    return item.checked
+  })
+  return isAll;
+};
+module.exports.allCount = function(list){
+  var count =  0;
+  list.forEach(function(item){
+    if(item.checked) count = count + item.count;
+  })
+  return count;
+};
+module.exports.allMoney = function(list){
+  var money =  0;
+  list.forEach(function(item){
+    if(item.checked) {
+      money = money + item.count * item.price;
+    }
+  })
+  return money;
+};

@@ -1,0 +1,41 @@
+<!--pages/home/home.wxml-->
+<view class="page-header">
+    <!-- 搜索框 -->
+    <view class="header__search">
+        <image class="search__img" src="../../images/navi_title_v6.png" mode="widthFix" />
+        <van-search bind:change="inputSearch" class="search-wrap" value="{{ seachName }}" shape="round"
+            background="#845d32" placeholder="搜一搜">
+        </van-search>
+    </view>
+    <view class="header__swiper">
+        <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{2000}}" duration="{{200}}"
+            circular="{{true}}">
+            <block wx:for="{{swiperList}}" wx:key="index">
+                <swiper-item>
+                    <image class='img' src="{{item.img}}" mode='aspectFill'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="navCom">
+        <view wx:for="{{navList}}" wx:key="index"  class="nav">
+            <image src="{{item.img}}" alt="" mode="widthFix" />
+            <text>{{ item.text }}</text>
+        </view>
+    </view>
+</view>
+<view class="listBox">
+        <view class="productListBox" wx:for="{{productData}}" wx:key="index" data-index="{{item}}" bindtap="toDetail">
+            <view class="imgBox">
+                <image src="{{item.img}}" alt="" mode="widthFix"></image>
+                <text wx:if="{{item.tag}}">{{item.tag}}</text>
+            </view>
+            <view class="name">{{item.name}}</view>
+            <view class="des">{{item.des}}</view>
+            <view>
+                <text class="price">￥{{item.price}}</text>
+                <text class="oldPrice" wx:if="{{item.oldPrice}}">￥{{item.oldPrice}}</text>
+            </view>
+        </view>
+    </view>
+<view class="bottom-text">更多商品，敬请期待！</view>

@@ -1,0 +1,23 @@
+<!--pages/detail/detail.wxml-->
+<view>
+    <view class="productListBox">
+        <view class="imgBox">
+            <image src="{{img}}" alt="" mode="widthFix"></image>
+            <text wx:if="{{tag}}">{{item.tag}}</text>
+        </view >
+        <view class="detail">
+        <view class="name">{{name}}</view>
+        <view class="des">{{des}}</view>
+        <view>
+            <text class="price">￥{{price}}</text>
+            <text class="oldPrice" wx:if="{{oldPrice}}">￥{{oldPrice}}</text>
+        </view>
+    </view>
+    </view>
+<van-goods-action>
+    <van-goods-action-icon icon="chat-o" text="客服"  />
+    <van-goods-action-icon icon="cart-o" text="购物车" info="{{num}}" bind:click="goCart"/>
+    <van-goods-action-button text="加入购物车" type="warning" bind:click="addCart" />
+    <van-goods-action-button text="立即购买" />
+</van-goods-action>
+</view>

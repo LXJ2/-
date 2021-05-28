@@ -1,0 +1,12 @@
+// 上拉加载提示
+module.exports.tipText = function (isLoding, list, hasmore) {
+  if (isLoding) return "加载中...";
+  else if (list.length === 0) return "暂无相关商品.."
+  else if (hasmore) return "上拉加载更多"
+  else return "已经到达底部"
+
+}
+// margin-top
+module.exports.topHeight = function(headerHeight){
+  return headerHeight + "px";
+}

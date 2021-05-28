@@ -1,0 +1,17 @@
+<!--pages/profile/profile.wxml-->
+<view class="user">
+    <view class="userId">
+      
+      <image class="userI" src="../../images/icons/userId.png"></image>
+      <view class="login">请登录</view>
+    </view>
+    
+    <view class="userInfo">
+      <view class="info" wx:for="{{infoList}}" wx:key="index">
+        <image class="icon" src="{{item.icon}}"></image>
+        <view>{{item.titil}}</view>
+        <image class="arrow" src="../../images/icons/rightArrow.png" ></image>
+        
+      </view>
+    </view>
+  </view>

@@ -1,0 +1,11 @@
+<view class="btn-wrap">
+  <view class="mi-btn" bindtap="decreaseHandeler">
+    -
+  </view>
+  <view class="num-text">
+    {{count}}
+  </view>
+  <view class="mi-btn" bindtap="increaseHandeler">
+    +
+  </view>
+</view>
