@@ -2,7 +2,8 @@
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index",
     "van-toast": "@vant/weapp/toast/index",
-    "van-dialog": "@vant/weapp/dialog/index"
+    "van-dialog": "@vant/weapp/dialog/index",
+    "mi-count": "../../components/mi_count/mi_count"
   },
   "navigationBarTitleText": "购物车"
 }

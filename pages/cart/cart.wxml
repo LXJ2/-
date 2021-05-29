@@ -41,11 +41,19 @@
               <image class="" src="{{item.img}}" mode="widthFix" />
             </view>
             <view class="dcre-wrap">
-              <view class="top">{{item.brief}}</view>
+              <!-- <view class="name">{{item.name}}</view>
+            <view class="des">{{item.des}}</view>
+            <view>
+                <text class="price">￥{{item.price}}</text>
+                <text class="oldPrice" wx:if="{{item.oldPrice}}">￥{{item.oldPrice}}</text>
+            </view> -->
+              <view class="top">{{item.name}}</view>
+              <view class="des">{{item.des}}</view>
               <view class="bottom">
                 <view class="left">
                   ￥
                   <view class="left___price">{{item.price}}.00</view>
+                  <text class="oldPrice" wx:if="{{item.oldPrice}}">￥{{item.oldPrice}}</text>
                 </view>
                 <view class="right">
                   <mi-count count="{{item.count}}" data-id="{{item.id}}" binddecrease="decreaseHandeler" bindincrease="increaseHandeler"></mi-count>
@@ -77,7 +85,7 @@
           <view class="top__titel">合计</view>
           <view class="price">￥{{cartWxs.allMoney(list)}}.00</view>
         </view>
-        <view class="bottom" wx:if="{{list.length === 0}}">活动优惠￥1200.00</view>
+        <view class="bottom" wx:if="{{cartWxs.isOldPrice(list)}}">活动优惠￥{{cartWxs.reducedPrice(list)}}.00</view>
       </view>
       <!-- 结算 -->
       <view wx:if="{{!isEditor}}" bindtap="settleBtn" class="settle-btn" class="settle-wrap__right">

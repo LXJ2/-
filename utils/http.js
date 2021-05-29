@@ -1,6 +1,9 @@
 let baseUrl = 'http://localhost:8088';
-function http(option){
+function http(option,withLoding = true){
   let {url,method="GET",data={}} = option;
+  if (withLoding) wx.showLoading({
+    title: '加载中...',
+  });
   return new Promise((res,rej)=>{
     wx.request({
       url: baseUrl+url,
@@ -9,8 +12,15 @@ function http(option){
       success(data){
         res(data.data)
       },
-      fail(err){
-        rej(err)
+      fail: (err) => {
+        console.log(ererr);
+        return alwasPending;
+      },
+      complete: () => {
+        if (withLoding) wx.hideLoading({
+          success: (res) => {},
+        });
+
       }
     })
   })

@@ -1,0 +1,36 @@
+<wxs module="addressWxs" src="./address.wxs"></wxs>
+<view class="page-wrap">
+  <van-dialog id="van-dialog" /> 
+  <van-toast id="van-toast" />
+  <view class="page-header">
+    <van-nav-bar title="收货地址" left-text="返回" left-arrow safe-area-inset-top="{{false}}" bind:click-left="returnFloor" />
+  </view>
+  <view class="page-body">
+    <view class="address-list">
+      <view wx:for="{{list}}" class="list__item" wx:key="id">
+        <van-swipe-cell class="list__item__van-swipe" right-width="{{ 124 }}" left-width="{{ 126 }}">
+          <view data-id="{{item.receive_detail}}" catchtap="defaultAddress" slot="left" class="left">
+            设为默认地址
+          </view>   
+          <view class="content" catchtap="selectAddress" data-id="{{item.receive_detail}}">
+            <image hidden="{{!list}}" class="default__image" src="./image/default.png" mode="widthFix" />
+            <view class="content__top">
+              <view>{{item.receive_name}}</view>
+              <view>{{item.receive_phone}}</view>
+            </view>
+            <view class="content__bottom">{{item.receive_region}} {{item.receive_detail}}</view>
+          </view>
+          <view slot="right" class="right">
+            <view data-id="{{item.receive_detail}}" catchtap="removeAddress" class="remove">删除</view>
+            <view data-id="{{item.receive_detail}}" catchtap="updateAddress" class="update">修改</view>
+          </view>
+        </van-swipe-cell>
+      </view>
+    </view>
+  </view>
+  <view class="page-bottom">
+    <van-button class="addAdress" bindtap="jumpEditor" icon="plus" block plain type="primary">
+      收货地址
+    </van-button>
+  </view>
+</view>

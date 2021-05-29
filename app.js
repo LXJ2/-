@@ -21,6 +21,7 @@ App({
   },
   globalData: {
     host: 'http://localhost:8088',
-    cartList: []
+    cartList: [],
+    addressList:[]
   },
 })

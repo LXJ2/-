@@ -1,0 +1,21 @@
+<view class="page-wrap">
+  <van-toast id="van-toast" />
+  <view class="page-head">
+    <van-nav-bar class="head__nav" border safe-area-inset-top="{{false}}" title="{{updateAddress ? '修改地址' : '新增地址'}}" />
+  </view>
+  
+  <view class="page-body">
+    <van-cell-group>
+      <van-field bind:input="nameFunc" model:value="{{ receive_name }}" label="收货姓名" placeholder="请输入收货人姓名" clearable required />
+      <van-field bind:input="phoneFunc" model:value="{{ receive_phone }}" clearable type="text" label="手机号码" required placeholder="请输入手机号码" />
+      <van-field bind:input="regionFunc" model:value="{{ receive_region }}" label="所在地区" required clearable is-link arrow-direction="down" placeholder="请选择省/市/区/街道" bindtap="showPop" />
+      <van-field bind:input="detailFunc" model:value="{{ receive_detail }}" type="text" required clearable label="详细地址" placeholder="请输入街道地址" />
+    </van-cell-group>
+  </view>
+  <view class="page-bottom">
+    <button bindtap="saveBtn" class="saveBtn">保存</button>
+  </view>
+  <van-popup show="{{ isPop }}" round position="bottom" bind:close="closePop" custom-style="height: 80%">
+    <van-area area-list="{{ areaList }}" bind:cancel="closePop" columns-placeholder="{{ ['请选择', '请选择', '请选择'] }}" bind:change="changeArea" bind:confirm="confirmArea" />
+  </van-popup>
+</view> 

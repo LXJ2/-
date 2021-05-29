@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/home/home",
+        "pages/address/address",
         "pages/category/category",
         "pages/cart/cart",
         "pages/user/user",
@@ -43,6 +44,11 @@
                 "text": "我的"
             }
         ]
+    },
+    "usingComponents":{
+        "van-button": "@vant/weapp/button/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-toast": "@vant/weapp/toast/index"
     },
     "sitemapLocation": "sitemap.json"
 }

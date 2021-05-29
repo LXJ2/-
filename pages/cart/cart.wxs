@@ -13,10 +13,29 @@ module.exports.allCount = function(list){
 };
 module.exports.allMoney = function(list){
   var money =  0;
+ 
   list.forEach(function(item){
     if(item.checked) {
       money = money + item.count * item.price;
     }
   })
   return money;
+};
+module.exports.reducedPrice = function(list){
+  var reducedPrice = 0;
+  list.forEach(function(item){
+    if(item.checked){
+      reducedPrice = reducedPrice + item.count*(item.oldPrice - item.price)
+    }
+  })
+  return reducedPrice;
+};
+module.exports.isOldPrice = function(list){
+  var oldPrice = false;
+  list.forEach(function(item){
+    if(item.oldPrice){
+      oldPrice = true;
+    }
+  })
+  return oldPrice;
 };

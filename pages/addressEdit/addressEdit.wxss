@@ -1,0 +1,27 @@
+page {
+  background-color: rgb(246, 246, 246);
+}
+
+/* page-head */
+.head__nav {
+  background-color: rgb(244, 244, 244);
+}
+
+/* page-body */
+.page-body {
+  padding: 10rpx 30rpx;
+  background-color: white;
+}
+
+.page-bottom {
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.saveBtn {
+  padding: 10rpx 60rpx;
+  font-size: 30rpx;
+  background-color: #000;
+  color: white;
+}

@@ -100,7 +100,45 @@ page,
 
 
 /* cart-wrap */
-
+.name {
+    font-size: 15px;
+    width: 171px;
+    color: rgb(51, 51, 51);
+    line-height: 21px;
+    text-overflow: ellipsis;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+.des {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 24rpx;
+    text-indent: 1.5em;
+    width: 171px;
+    color: rgb(153, 153, 153);
+    /* padding-left: 3px;
+    padding-right: 3px;
+    margin-top: 2px; */
+   /*  line-height: 18px;
+    -webkit-box-pack: center;
+    overflow: hidden; */
+}
+.price {
+    color: red;
+}
+.oldPrice {
+    /* margin-left: 4px; */
+    font-size: 24rpx;
+    color: rgb(153, 153, 153);
+    text-decoration: line-through;
+    /* margin-bottom: 0.5px;
+    height: 20px; */
+}
 .cart-wrap {
     background-color: white;
     border-radius: 40rpx;

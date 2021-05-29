@@ -1,0 +1,7 @@
+module.exports.account = function (productList) {
+  var account = 0;
+  productList.forEach(function (item) {
+    account = account + item.count * item.price;;
+  })
+  return account;
+}

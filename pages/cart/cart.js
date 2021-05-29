@@ -108,6 +108,7 @@ Page({
     settleBtn() {
         // 组合选中的购物记录id
         let ids = [];
+        let productList = this.data.list;
         this.data.list.forEach(item => {
             if (item.checked) ids.push(item.id);
         });
@@ -124,7 +125,8 @@ Page({
                 url: '/pages/orderConfirm/orderConfirm',
                 success: (result) => {
                     result.eventChannel.emit('settleIds', {
-                        ids
+                        ids,
+                        productList
                     })
                 }
             });
@@ -142,7 +144,7 @@ Page({
     },
     // 返回上一页
     toBack() {
-        if (app.globalData.toCartWay === "") {
+       /*  if (app.globalData.toCartWay === "") { */
             wx.switchTab({
                 url: '/pages/home/home',
                 success: (result) => {
@@ -151,16 +153,16 @@ Page({
                 fail: () => {},
                 complete: () => {}
             });
-        } else {
+        /* } else {
             wx.navigateTo({
-                url: app.globalData.toCartWay,
+                url: '/pages/detail/detail',
                 success: (result) => {
 
                 },
                 fail: () => {},
                 complete: () => {}
             });
-        }
+        } */
 
     },
     /**

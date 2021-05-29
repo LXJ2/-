@@ -1,2 +1,56 @@
-<!--pages/orderConfirm/orderConfirm.wxml-->
-<text>pages/orderConfirm/orderConfirm.wxml</text>
+<wxs src="../../app.wxs" module="appWxs" />
+<wxs src="./orderConfirm.wxs" module="orderConfirmWxs" />
+<view class="page-wrap">
+<van-dialog id="van-dialog" />
+  <view class="bjImg">
+    <image src="./img/bg_page_header.png" mode="widthFix"></image>
+  </view>
+  <view class="page-head">
+    <view class="head__title">确认订单</view>
+  </view>
+  <view class="page-body">
+    <!-- 地址列表 -->
+    <view class="addressList">
+      <view wx:if="{{addressData}}" bindtap="selectAddres" class="hasAdress">
+        <view class="top">
+          <view class="name">{{addressData.receive_name}}</view>
+          <view class="phonr">{{addressData.receive_phone}}</view>
+        </view>
+        <view class="bottom">{{addressData.receive_region}} {{addressData.receive_detail}}</view>
+      </view > 
+      <view wx:else class="noAddress" bindtap="goAddresEdit">新增收货地址</view>
+      <view class="hasMore" >
+        <van-icon name="arrow"/>
+      </view>
+    </view>
+  
+    <!-- 商品列表 -->
+    <view class="productList">
+      <view class="p__title"></view>
+      <view class="item__wrap">
+        <block wx:for="{{productList}}" wx:key="id">
+          <view class="p__item">
+            <image class="left__image" src="{{item.img}}" mode="widthFix"></image>
+            <view class="right">
+              <view class="brief">{{item.brief}}</view>
+              <view class="price-count">
+                <view class="price__left">
+                  <view class="symbol">￥</view>
+                  <view class="price">{{item.price}}</view>
+                </view>
+                <view class="price__right">x{{item.count}}</view>
+              </view>
+              <view class="right__tip">7天无理由退货</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 提交订单 -->
+  <view class="page-bottom">
+    <van-submit-bar
+    data-account="{{orderConfirmWxs.account(productList)}}"
+     price="{{ orderConfirmWxs.account(productList)*100 }}" button-text="提交订单" bind:submit="submitOrder" />
+  </view>
+</view>

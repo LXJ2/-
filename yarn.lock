@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@vant/area-data@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@vant/area-data/-/area-data-1.1.1.tgz#b9acf8a804c0d60f721b6900680299422b006b1a"
+  integrity sha512-MmXTuSh6YYWSvC112iK2/rZhEfe+3vfh6G9TD1sOTOrtw+H9bAnw8ZOiHdkL6hTUCXV+AJEDbFyFsNLpJxqkoA==
+
 "@vant/weapp@^1.6.8":
   version "1.6.8"
   resolved "https://registry.yarnpkg.com/@vant/weapp/-/weapp-1.6.8.tgz#948ae16fba07c5a2054c52783f22aaf6a04453e1"
