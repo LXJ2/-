@@ -1,5 +1,4 @@
 <!--pages/home/home.wxml-->
-
 <view class="page-header">
     <!-- 搜索框 -->
     <view class="header__search">
@@ -40,3 +39,4 @@
         </view>
     </view>
 <view class="bottom-text">更多商品，敬请期待！</view>
+<van-dialog id="van-dialog" />

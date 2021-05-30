@@ -30,9 +30,6 @@ page,
 
 
 /* 固定SwipeCell里每一项 的高度  */
-
-.address-list .list__item .left,
-.address-list .list__item .right,
 .address-list .list__item .content {
     height: 200rpx;
 }
@@ -48,6 +45,7 @@ page,
     color: white;
     padding: 0 30rpx;
     box-sizing: border-box;
+    margin-right: -100rpx;
 }
 
 
@@ -55,7 +53,11 @@ page,
 
 .address-list .list__item .right {
     display: flex;
-    width: 100rpx;
+    width: 80rpx;
+}
+.address-list .list__item .content__bottom image{
+    height: 40rpx;
+    width: 40rpx;
 }
 
 
@@ -81,6 +83,8 @@ page,
     margin-top: 10rpx;
     color: #666;
     font-size: 28rpx;
+    display: flex;
+    justify-content: space-between
 }
 
 .address-list .list__item .content .content__top {

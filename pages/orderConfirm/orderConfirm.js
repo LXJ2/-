@@ -111,7 +111,9 @@ Page({
         console.log(this.data.addressData);
     },
     submitOrder(event) {
+        let that = this;
         Dialog.confirm({
+                context: that,
                 title: '订单提交提醒',
                 message: '确认要提交订单吗',
             })
@@ -143,7 +145,7 @@ Page({
                             }, 1500);
                         });
                         wx.redirectTo({
-                            url: `/pages/orderPay/orderPay?orderId=${orderId}`,
+                            url: `/pages/orderPay/orderPay`,
                             success: (result) => {
 
                             },

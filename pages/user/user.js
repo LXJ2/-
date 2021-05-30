@@ -5,13 +5,38 @@ Page({
      * 页面的初始数据
      */
     data: {
-        infoList: []
+        infoList: [],
+        userInfo:''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      
+     
+      let that = this;
+      that.logo= that.selectComponent(".logo");
+      //判断缓存中有没有授权信息，如果没有就显示弹窗，有就直接隐藏弹窗
+      let storageKey = wx.getStorageSync('userInfo');
+      console.log(storageKey);
+      that.setData({
+        userInfo:storageKey
+      })
+      console.log(that.data.userInfo);
+      if (storageKey){
+        wx.getStorage({
+          key: 'userInfo',
+          success: (res) => {
+            if (res.data) {
+              getApp().globalData.userInfo = res.data;
+              that.logo.hideDialog();//调用子组件的方法
+            }
+          },
+        })
+      }else{
+        that.logo.showDialog();//调用子组件的方法
+      }
 
     },
 

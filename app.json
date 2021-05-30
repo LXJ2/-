@@ -6,7 +6,8 @@
         "pages/cart/cart",
         "pages/user/user",
         "pages/detail/detail",
-        "pages/orderConfirm/orderConfirm"
+        "pages/orderConfirm/orderConfirm",
+        "pages/login/login"
     ],
     "window": {
         "backgroundColor": "#b35919",
@@ -45,10 +46,11 @@
             }
         ]
     },
-    "usingComponents":{
+    "usingComponents": {
         "van-button": "@vant/weapp/button/index",
         "van-icon": "@vant/weapp/icon/index",
-        "van-toast": "@vant/weapp/toast/index"
+        "van-toast": "@vant/weapp/toast/index",
+        "van-dialog": "@vant/weapp/dialog/index"
     },
     "sitemapLocation": "sitemap.json"
 }

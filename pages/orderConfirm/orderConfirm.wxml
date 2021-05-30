@@ -1,11 +1,12 @@
 <wxs src="../../app.wxs" module="appWxs" />
 <wxs src="./orderConfirm.wxs" module="orderConfirmWxs" />
 <view class="page-wrap">
-<van-dialog id="van-dialog" />
+
   <view class="bjImg">
     <image src="./img/bg_page_header.png" mode="widthFix"></image>
   </view>
   <view class="page-head">
+    <van-dialog id="van-dialog" />
     <view class="head__title">确认订单</view>
   </view>
   <view class="page-body">

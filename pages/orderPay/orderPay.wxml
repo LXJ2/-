@@ -1,2 +1,4 @@
 <!--pages/orderPay/orderPay.wxml-->
-<text>pages/orderPay/orderPay.wxml</text>
+<view class="pay">
+<image src="../../images/icons/payOk.png"></image>
+</view>

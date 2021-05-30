@@ -1,1 +1,10 @@
 /* pages/orderPay/orderPay.wxss */
+image{
+    width: 100rpx;
+    height: 100rpx;
+    margin-top: 200rpx;
+}
+.pay{
+    display: flex;
+    justify-content: center;
+}

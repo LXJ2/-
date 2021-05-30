@@ -8,22 +8,18 @@
   <view class="page-body">
     <view class="address-list">
       <view wx:for="{{list}}" class="list__item" wx:key="id">
-        <van-swipe-cell class="list__item__van-swipe" right-width="{{ 124 }}" left-width="{{ 126 }}">
-          <view data-id="{{item.receive_detail}}" catchtap="defaultAddress" slot="left" class="left">
-            设为默认地址
-          </view>   
+        <van-swipe-cell class="list__item__van-swipe" right-width="{{ 124 }}" left-width="{{ 126 }}">   
           <view class="content" catchtap="selectAddress" data-id="{{item.receive_detail}}">
-            <image hidden="{{!list}}" class="default__image" src="./image/default.png" mode="widthFix" />
+            <!-- <image hidden="{{!list}}" class="default__image" src="./image/default.png" mode="widthFix" /> -->
             <view class="content__top">
               <view>{{item.receive_name}}</view>
               <view>{{item.receive_phone}}</view>
             </view>
-            <view class="content__bottom">{{item.receive_region}} {{item.receive_detail}}</view>
+            <view class="content__bottom">{{item.receive_region}} {{item.receive_detail}}
+            <image src="../../images/icons/addressEdit.png"></image>
           </view>
-          <view slot="right" class="right">
-            <view data-id="{{item.receive_detail}}" catchtap="removeAddress" class="remove">删除</view>
-            <view data-id="{{item.receive_detail}}" catchtap="updateAddress" class="update">修改</view>
           </view>
+          
         </van-swipe-cell>
       </view>
     </view>

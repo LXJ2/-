@@ -1,4 +1,5 @@
-import { getProductData,getSwiper,navList } from '../api/home.js' 
+import { getProductData,getSwiper,navList } from '../api/home.js';
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 Page({
 
     /**
@@ -37,6 +38,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        
         getProductData().then(data=>{
             this.setData({
                 productData:data.data,
@@ -54,7 +56,28 @@ Page({
                 navList:data.data,
             })
             
-        })
+        });
+        let storageKey = wx.getStorageSync('userInfo');
+        if(!storageKey){
+        Dialog.confirm({
+            title: '提示',
+            message: '不授权无法完成购买，点击确度按钮开始授权',
+            confirmButtonText:'去授权',
+            cancelButtonText:'取消'
+          }).then(() => {
+              // on confirm
+              wx.switchTab({
+                url: '/pages/user/user',
+                success: (result) => {
+                }
+            });
+            })
+            .catch(() => {
+              // on cancel
+            });
+        }
+
+        
     },
 
     /**
