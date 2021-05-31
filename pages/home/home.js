@@ -37,25 +37,21 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-        
+    onLoad: function (options) {    
         getProductData().then(data=>{
             this.setData({
                 productData:data.data,
             })
-            // console.log(data)
         });
         getSwiper().then(data=>{
             this.setData({
                 swiperList:data.data,
             })
-            // console.log(data);
         });
         navList().then(data=>{
             this.setData({
                 navList:data.data,
-            })
-            
+            })         
         });
         let storageKey = wx.getStorageSync('userInfo');
         if(!storageKey){
@@ -75,9 +71,7 @@ Page({
             .catch(() => {
               // on cancel
             });
-        }
-
-        
+        }      
     },
 
     /**

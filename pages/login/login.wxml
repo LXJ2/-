@@ -4,12 +4,12 @@
     <view class="isLogin">
         <view class="loginTitle">微信授权</view>
         <view class="loginshopImg">
-            <view>小程序将获取以下权限：</view>
+            <view>小米有品申请获取以下权限：</view>
             <view>(如未授权，可能无法正常使用该小程序)</view>
         </view>
         <view class="isAgary">
-            <text>•</text>
-            <view>获取你的公开信息(昵称、头像等)</view>
+            <text>小米有品申请</text>
+            <view>获取你的昵称、头像、地区及性别</view>
         </view>
         <view class="isLoginBtn">
             <button bindgetuserinfo="getUserInfo" open-type="getUserInfo">授权</button>

@@ -1,20 +1,4 @@
 import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
-/* const {
-    globalData: {
-        Api: {
-            cart: {
-                list_ids
-            },
-            address: {
-                getList,
-                get_default
-            },
-            order: {
-                addOrderList
-            }
-        }
-    }
-} = getApp(); */
 Page({
 
     /**
@@ -88,25 +72,13 @@ Page({
      */
     onLoad:  function (options) {
         const eventChannel = this.getOpenerEventChannel();
-        eventChannel.on('settleIds',(data) => {
-            /* let {
-                ids,
-                productList
-            } = data; */
-            /* let list = await list_ids({
-                ids
-            }); */
-            
+        eventChannel.on('settleIds',(data) => {    
             this.setData({
                 ids:data.ids,
                 productList: data.productList,
             });
             
         });
-            /* let addressList = getApp().globalData.addressList.forEach((item) =>{
-                return item
-            })
-            console.log(this.data.addressData); */
         this.getAdress();
         console.log(this.data.addressData);
     },
@@ -125,7 +97,6 @@ Page({
                         icon: 'none',
                     });
                     return;
-
                 }
                 let data = {
                     ids: this.data.ids,

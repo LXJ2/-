@@ -55,24 +55,22 @@ Page({
         console.log(event);
 
     },
-    // 减 async
+    // 减 
     decreaseHandeler(event) {
         console.log(event);
         // 当前要增加 减少 记录id
         let id = event.target.dataset.id;
-        //await decrease(id);
         let itemData = this.data.list.find(item => item.id === id);
         itemData.count -= 1;
         this.setData({
             list: this.data.list
         });
     },
-    // 加async
+    // 加
      increaseHandeler(event) {
-        console.log(event);
+       // console.log(event);
         // 当前要增加 减少 记录id
         let id = event.target.dataset.id;
-        // await increase(id);
         let itemData = this.data.list.find(item => item.id === id);
         itemData.count += 1;
         this.setData({

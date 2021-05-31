@@ -36,6 +36,7 @@ Component({
     },
     //授权
     getUserInfo(e){
+      console.log(e);
       let detail = e.detail;
       if (detail.errMsg == "getUserInfo:fail auth deny") {
         wx.showToast({

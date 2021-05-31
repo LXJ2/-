@@ -41,12 +41,6 @@
               <image class="" src="{{item.img}}" mode="widthFix" />
             </view>
             <view class="dcre-wrap">
-              <!-- <view class="name">{{item.name}}</view>
-            <view class="des">{{item.des}}</view>
-            <view>
-                <text class="price">￥{{item.price}}</text>
-                <text class="oldPrice" wx:if="{{item.oldPrice}}">￥{{item.oldPrice}}</text>
-            </view> -->
               <view class="top">{{item.name}}</view>
               <view class="des">{{item.des}}</view>
               <view class="bottom">
